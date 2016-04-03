@@ -131,7 +131,7 @@ helpers.getHashParams = function() {
       d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
       q = window.location.hash.substring(1);
   while (e = r.exec(q))
-    hashParams[d(e[1])] = d(e[2]);
+    hashParams[d(e[1])] = d(e[1]);
   return hashParams;
 };
 
