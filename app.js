@@ -35,10 +35,10 @@ var config = {
 (function() {
   var errString;
 
-  if (config.house_edge <= -100.0) {
-    errString = 'House edge must be > -100.0 (0%)';
+  if (config.house_edge <= -10.0) {
+    errString = 'House edge must be > -10.0 (100%)';
   } else if (config.house_edge >= 100.0) {
-    errString = 'House edge must be < 1.0 (100%)';
+    errString = 'House edge must be < 1.0 (1000%)';
   }
 
   if (errString) {
