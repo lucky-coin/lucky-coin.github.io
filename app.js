@@ -102,7 +102,7 @@ helpers.calcNumber = function(cond, winProb) {
   console.assert(typeof winProb === 'number');
 
   if (cond === '<') {
-    return winProb * 1000;
+    return winProb * 100;
   } else {
     return 99.99 - (winProb * 100);
   }
