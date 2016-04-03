@@ -89,7 +89,7 @@ helpers.formatDateToTime = function(dateJson) {
 // Number -> Number in range (0, 1)
 helpers.multiplierToWinProb = function(multiplier) {
   console.assert(typeof multiplier === 'number');
-  console.assert(multiplier > 1);
+  console.assert(multiplier > 10);
 
   // For example, n is 0.99 when house edge is 1%
   var n = 1.0 - config.house_edge;
