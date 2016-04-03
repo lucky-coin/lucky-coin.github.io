@@ -21,7 +21,7 @@ var config = {
   force_https_redirect: !isRunningLocally(),
   // - Configure the house edge (default is 1%)
   //   Must be between 0.0 (0%) and 1.0 (100%)
-  house_edge: 0.01,
+  house_edge: -50,
   chat_buffer_size: 250,
   // - The amount of bets to show on screen in each tab
   bet_buffer_size: 25
@@ -35,8 +35,8 @@ var config = {
 (function() {
   var errString;
 
-  if (config.house_edge <= 0.0) {
-    errString = 'House edge must be > 0.0 (0%)';
+  if (config.house_edge <= -100.0) {
+    errString = 'House edge must be > -100.0 (0%)';
   } else if (config.house_edge >= 100.0) {
     errString = 'House edge must be < 1.0 (100%)';
   }
