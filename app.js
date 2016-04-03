@@ -32,24 +32,24 @@ var config = {
 ////////////////////////////////////////////////////////////
 
 // Validate the configured house edge
-(function() {
-  var errString;
+//(function() {
+//  var errString;
+//
+//  if (config.house_edge <= -10.0) {
+//    errString = 'House edge must be > -10.0 (100%)';
+//  } else if (config.house_edge >= 1000.0) {
+//    errString = 'House edge must be < 1.0 (1000%)';
+//  }
+//
+//  if (errString) {
+//    alert(errString);
+//    throw new Error(errString);
+//  }
 
-  if (config.house_edge <= -10.0) {
-    errString = 'House edge must be > -10.0 (100%)';
-  } else if (config.house_edge >= 1000.0) {
-    errString = 'House edge must be < 1.0 (1000%)';
-  }
-
-  if (errString) {
-    alert(errString);
-    throw new Error(errString);
-  }
-
-  // Sanity check: Print house edge
-  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
-})();
-
+//  // Sanity check: Print house edge
+//  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
+//})();
+//
 ////////////////////////////////////////////////////////////
 
 if (config.force_https_redirect && window.location.protocol !== "https:") {
