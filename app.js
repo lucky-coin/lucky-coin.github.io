@@ -21,7 +21,7 @@ var config = {
   force_https_redirect: !isRunningLocally(),
   // - Configure the house edge (default is 1%)
   //   Must be between 0.0 (0%) and 1.0 (100%)
-  house_edge: -1,
+  house_edge: 0.09,
   chat_buffer_size: 250,
   // - The amount of bets to show on screen in each tab
   bet_buffer_size: 25
@@ -32,23 +32,23 @@ var config = {
 ////////////////////////////////////////////////////////////
 
 // Validate the configured house edge
-//(function() {
-//  var errString;
-//
-//  if (config.house_edge <= -10.0) {
-//    errString = 'House edge must be > -10.0 (100%)';
-//  } else if (config.house_edge >= 1000.0) {
-//    errString = 'House edge must be < 1.0 (1000%)';
-//  }
-//
-//  if (errString) {
-//    alert(errString);
-//    throw new Error(errString);
-//  }
+(function() {
+  var errString;
 
-//  // Sanity check: Print house edge
-//  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
-//})();
+  if (config.house_edge <= 0.0) {
+    errString = 'House edge must be > 0.0 (0%)';
+  } else if (config.house_edge >= 100.0) {
+    errString = 'House edge must be < 1.0 (100%)';
+  }
+
+  if (errString) {
+    alert(errString);
+    throw new Error(errString);
+  }
+
+  // Sanity check: Print house edge
+  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
+})();
 //
 ////////////////////////////////////////////////////////////
 
