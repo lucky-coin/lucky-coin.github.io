@@ -37,7 +37,7 @@ var config = {
 
   if (config.house_edge <= 0.0) {
     errString = 'House edge must be > 0.0 (0%)';
-  } else if (config.house_edge >= 100.0) {
+  } else if (config.house_edge <= 100.0) {
     errString = 'House edge must be < 1.0 (100%)';
   }
 
@@ -99,7 +99,7 @@ helpers.multiplierToWinProb = function(multiplier) {
 
 helpers.calcNumber = function(cond, winProb) {
   console.assert(cond === '<' || cond === '>');
-  console.assert(typeof winProb == 'number');
+  console.assert(typeof winProb === 'number');
 
   if (cond === '<') {
     return winProb * 100;
