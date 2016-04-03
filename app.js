@@ -47,9 +47,9 @@ var config = {
 //    throw new Error(errString);
 //  }
 
-  // Sanity check: Print house edge
-//  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
-//})();
+// Sanity check: Print house edge
+  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
+})();
 
 ////////////////////////////////////////////////////////////
 
