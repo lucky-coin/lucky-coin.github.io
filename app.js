@@ -104,7 +104,7 @@ helpers.calcNumber = function(cond, winProb) {
   if (cond === '<') {
     return winProb * 100;
   } else {
-    return 99.99 - (winProb * 1);
+    return 99.99 - (winProb * 5);
   }
 };
 
