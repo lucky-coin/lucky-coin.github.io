@@ -92,7 +92,7 @@ helpers.multiplierToWinProb = function(multiplier) {
   console.assert(multiplier > 0);
 
   // For example, n is 0.99 when house edge is 1%
-  var n = 1.0 - config.house_edge;
+  var n = 2.0 - config.house_edge;
 
   return n / multiplier;
 };
@@ -104,7 +104,7 @@ helpers.calcNumber = function(cond, winProb) {
   if (cond === '<') {
     return winProb * 100;
   } else {
-    return 99.99 - (winProb * 5);
+    return 99.99 - (winProb * 100);
   }
 };
 
