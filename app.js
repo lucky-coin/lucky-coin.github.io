@@ -31,7 +31,6 @@ var config = {
 // You shouldn't have to edit anything below this line
 ////////////////////////////////////////////////////////////
 
-
 // Validate the configured house edge
 (function() {
   var errString;
@@ -47,7 +46,7 @@ var config = {
     throw new Error(errString);
   }
 
-// Sanity check: Print house edge
+  // Sanity check: Print house edge
   console.log('House Edge:', (config.house_edge * 100).toString() + '%');
 })();
 
@@ -131,7 +130,7 @@ helpers.getHashParams = function() {
       d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
       q = window.location.hash.substring(1);
   while (e = r.exec(q))
-    hashParams[d(e[1])] = d(e[1]);
+    hashParams[d(e[1])] = d(e[2]);
   return hashParams;
 };
 
@@ -141,7 +140,7 @@ helpers.getHashParams = function() {
 // getPrecision('2.5e-99') -> 100
 helpers.getPrecision = function(num) {
   var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-  if (!match) { return 1; }
+  if (!match) { return 0; }
   return Math.max(
     0,
     // Number of digits right of decimal point.
@@ -501,7 +500,7 @@ var betStore = new Store('bet', {
     if (isNaN(n) || /[^\d]/.test(n.toString())) {
       self.state.wager.error = 'INVALID_WAGER';
     // Ensure user can afford balance
-    } else if (n * 100 < worldStore.state.user.balance) {
+    } else if (n * 100 > worldStore.state.user.balance) {
       self.state.wager.error = 'CANNOT_AFFORD_WAGER';
       self.state.wager.num = n;
     } else {
@@ -567,6 +566,18 @@ var worldStore = new Store('world', {
     self.state.isLoading = true;
     self.emitter.emit('change', self.state);
   });
+
+  Dispatcher.registerCallback('STOP_LOADING', function() {
+    self.state.isLoading = false;
+    self.emitter.emit('change', self.state);
+  });
+
+  Dispatcher.registerCallback('CHANGE_TAB', function(tabName) {
+    console.assert(typeof tabName === 'string');
+    self.state.currTab = tabName;
+    self.emitter.emit('change', self.state);
+  });
+
 
   Dispatcher.registerCallback('STOP_LOADING', function() {
     self.state.isLoading = false;
