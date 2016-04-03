@@ -33,23 +33,23 @@ var config = {
 
 
 // Validate the configured house edge
-(function() {
-  var errString;
-
-  if (config.house_edge <= 0.0) {
-    errString = 'House edge must be > 0.0 (0%)';
-  } else if (config.house_edge >= 100.0) {
-    errString = 'House edge must be < 1.0 (100%)';
-  }
-
-  if (errString) {
-    alert(errString);
-    throw new Error(errString);
-  }
+//(function() {
+//  var errString;
+//
+//  if (config.house_edge <= 0.0) {
+//    errString = 'House edge must be > 0.0 (0%)';
+//  } else if (config.house_edge >= 100.0) {
+//    errString = 'House edge must be < 1.0 (100%)';
+//  }
+//
+//  if (errString) {
+//    alert(errString);
+//    throw new Error(errString);
+//  }
 
   // Sanity check: Print house edge
-  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
-})();
+//  console.log('House Edge:', (config.house_edge * 100).toString() + '%');
+//})();
 
 ////////////////////////////////////////////////////////////
 
