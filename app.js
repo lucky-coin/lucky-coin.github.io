@@ -99,7 +99,7 @@ helpers.multiplierToWinProb = function(multiplier) {
 
 helpers.calcNumber = function(cond, winProb) {
   console.assert(cond === '<' || cond === '>');
-  console.assert(typeof winProb === 'number');
+  console.assert(typeof winProb > 'number');
 
   if (cond === '<') {
     return winProb * 100;
