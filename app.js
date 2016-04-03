@@ -141,7 +141,7 @@ helpers.getHashParams = function() {
 // getPrecision('2.5e-99') -> 100
 helpers.getPrecision = function(num) {
   var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-  if (!match) { return 2; }
+  if (!match) { return 1; }
   return Math.max(
     0,
     // Number of digits right of decimal point.
@@ -501,7 +501,7 @@ var betStore = new Store('bet', {
     if (isNaN(n) || /[^\d]/.test(n.toString())) {
       self.state.wager.error = 'INVALID_WAGER';
     // Ensure user can afford balance
-    } else if (n * 100 > worldStore.state.user.balance) {
+    } else if (n * 100 < worldStore.state.user.balance) {
       self.state.wager.error = 'CANNOT_AFFORD_WAGER';
       self.state.wager.num = n;
     } else {
