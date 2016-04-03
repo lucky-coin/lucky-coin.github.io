@@ -141,7 +141,7 @@ helpers.getHashParams = function() {
 // getPrecision('2.5e-99') -> 100
 helpers.getPrecision = function(num) {
   var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-  if (!match) { return 0; }
+  if (!match) { return 2; }
   return Math.max(
     0,
     // Number of digits right of decimal point.
@@ -493,7 +493,7 @@ var betStore = new Store('bet', {
 
     // If n is a number, ensure it's at least 1 bit
     if (isFinite(n)) {
-      n = Math.max(n, 0.1);
+      n = Math.max(n, 1);
       self.state.wager.str = n.toString();
     }
 
